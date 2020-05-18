@@ -11,22 +11,32 @@
 |
 */
 
-//a. Страницу приветствия пользователей.
-//b. Страницу с информацией о проекте.
-//c. Страницу для вывода одной и нескольких новостей.
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/hello/', function () {
-    return view('hello');
-});
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as' =>  'main'
+]);
 
-Route::get('/news', function () {
-    return view('news');
-});
+
+
+Route::get('/category/', [
+    'uses' => 'NewsController@categoryAll',
+    'as'=> 'category'
+]);
+Route::get('/category/{id}', [
+    'uses' => 'NewsController@categoryNews',
+    'as'=> 'categoryNews'
+]);
+
+
+Route::get('/news', [
+    'uses' => 'NewsController@index',
+    'as'=> 'newsAll'
+]);
+Route::get('/news/{id}', [
+    'uses' => 'NewsController@news',
+    'as'=> 'newsOne'
+]);
+
