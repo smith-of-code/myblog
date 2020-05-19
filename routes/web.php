@@ -39,4 +39,7 @@ Route::get('/news/{id}', [
     'uses' => 'NewsController@news',
     'as'=> 'newsOne'
 ]);
-
+Route::get('/admin', [
+    'uses' => 'Admin\IndexController@index',
+    'as'=> 'admin'
+]);
