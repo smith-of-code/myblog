@@ -5,7 +5,7 @@
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="" class="main-nav__link">добавить новость</a>
+            <a href="{{ route('newsAdd') }}" class="main-nav__link">добавить новость</a>
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">

@@ -12,16 +12,12 @@
 */
 
 
-
-
 Route::get('/', [
     'uses' => 'HomeController@index',
     'as' =>  'main'
 ]);
 
-
-
-Route::get('/category/', [
+Route::get('/category', [
     'uses' => 'NewsController@categoryAll',
     'as'=> 'category'
 ]);
@@ -42,4 +38,15 @@ Route::get('/news/{id}', [
 Route::get('/admin', [
     'uses' => 'Admin\IndexController@index',
     'as'=> 'admin'
+]);
+
+
+Route::match(['post', 'get'],'/admin/newsAdd', [
+    'uses' => 'Admin\IndexController@newsAdd',
+    'as'=> 'newsAdd'
+]);
+
+Route::match(['post', 'get'],'/feedback', [
+    'uses' => 'FeedbackController@index',
+    'as'=> 'feedbackAdd'
 ]);

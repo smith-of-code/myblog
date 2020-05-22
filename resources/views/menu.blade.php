@@ -16,6 +16,10 @@
             <a href="{{ route('admin') }}" class="main-nav__link">админка</a>
             <div class="background-nav"></div>
         </li>
+        <li class="main-nav__item">
+            <a href="{{ route('feedbackAdd') }}" class="main-nav__link">оставить отзыв</a>
+            <div class="background-nav"></div>
+        </li>
 
     </ul>
 </nav>
