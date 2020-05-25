@@ -10,8 +10,12 @@ class Feedback extends Model
 {
     public static function writeFeedback($feedback)
     {
-//        file::append('path/to/file', 'appended file content');
-        return Storage::append('feedback.json', json_encode($feedback));
+        \DB::insert('insert into feedback (`name`, `content`, create_at) values (:name, :content, now())' ,
+        [
+            'name' => $feedback['name'],
+            'content'=> $feedback['content']
+        ]
+            );
 
     }
 }

@@ -326,10 +326,23 @@ body{
 .news-item__title{
     margin-top: 10px;
     font-family: "Arial";
-    font-size: 1.3rem;
+    font-size: 1rem;
+    background-color: yellowgreen;
+    padding: 5px;
     color: white;
     transition: all 0.3s;
     text-transform: uppercase;
+    width: 100%;
+    &:hover{
+        transform: skew(0, -2deg)
+
+    }
+}
+.news-item__desc{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    transition: all 0.3s;
     &:hover{
         color: $pink;
     }

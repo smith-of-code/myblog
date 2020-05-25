@@ -14,8 +14,8 @@
     @if(@empty($send))
         <form class="add-news__form" action="{{route('feedbackAdd')}}" method="post">
             @csrf
-            <input class="add-news__input add-news__item" name="title" placeholder="Имя">
-            <textarea class="add-news__text add-news__item" name="inform" placeholder="текст отзыва"></textarea>
+            <input class="add-news__input add-news__item" name="name" placeholder="Имя">
+            <textarea class="add-news__text add-news__item" name="content" placeholder="текст отзыва"></textarea>
             <button class="add-news__button" type="submit">отправить отзыв</button>
         </form>
         @else
