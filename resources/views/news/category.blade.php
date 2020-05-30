@@ -1,4 +1,4 @@
-@extends('index')
+@extends('layouts.main')
 @section('title')
     {{ $category->name }}
 @endsection
@@ -17,7 +17,7 @@
 
         @foreach ($news as $item)
             <div class="news-item">
-                <a class="news-item__link" href="{{ route('newsOne', $item->id) }}">
+                <a class="news-item__link" href="{{ route('news.one', $item->id) }}">
                     <img class="news-item__img" src="{{$item->image}}" alt="">
                     <h3 class="news-item__title"> {{ $item->title }}</h3>
                     <p class="news-item__desc">{{ $item->desc }}</p>

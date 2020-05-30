@@ -1,4 +1,4 @@
-@extends('index')
+@extends('layouts.main')
 @section('title')
 Админка
 @endsection

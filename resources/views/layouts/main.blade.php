@@ -21,21 +21,21 @@
             @include('admin.menu')
         @endif
 
-        @show
+    @show
 </header>
 <div class="content">
 
     <div class="greeting center">
         @section('greeting')
-        <p class="greeting__quota">“</p>
-        <p class="greeting__text">
-        Добро пожаловать на мой первый новостной сайт, разработанный на laravel
-        </p>
+            <p class="greeting__quota">“</p>
+            <p class="greeting__text">
+                Добро пожаловать на мой первый новостной сайт, разработанный на laravel
+            </p>
         @show
     </div>
 
     <h1 class="page-name center">@section('page-name')Главная @show</h1>
-@yield('content')
+    @yield('content')
 </div>
 <footer class="footer ">
     <article class="about center">
@@ -46,7 +46,7 @@
                     <p class="about__name">Andrey Kleynos</p>
                     <div class="about__location"> <i class="fas fa-map-marker-alt"></i> Min-Vody Russia
                         <div class="about-map"><iframe
-                                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c1699cc7ec0c4219c7399113c90eff6f8d033ee58323054e3329bba3e95ab3d&amp;source=constructor" width="500" height="400" frameborder="0"></iframe></div>
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c1699cc7ec0c4219c7399113c90eff6f8d033ee58323054e3329bba3e95ab3d&amp;source=constructor" width="500" height="400" frameborder="0"></iframe></div>
                     </div>
                 </figcaption>
             </figure>
@@ -69,4 +69,3 @@
 </footer>
 </body>
 </html>
-

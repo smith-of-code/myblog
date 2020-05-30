@@ -5,15 +5,15 @@
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="{{ route('category') }}" class="main-nav__link">категории</a>
+            <a href="{{ route('category.all') }}" class="main-nav__link">категории</a>
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="{{ route('newsAll') }}" class="main-nav__link">новости</a>
+            <a href="{{ route('news.all') }}" class="main-nav__link">новости</a>
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="{{ route('admin') }}" class="main-nav__link">админка</a>
+            <a href="{{ route('admin.index') }}" class="main-nav__link">админка</a>
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">

@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('title')
-   Список новостей
+    Все Новости
 @endsection
 @section('greeting')
 @endsection
 @section('page-name')
-    Список новостей
+    Все Новости
 @endsection
 
 
@@ -20,8 +20,6 @@
                     <p class="news-item__desc">{{ $item->desc }}</p>
 
                 </a>
-                <a href="" class="button button-update"></a>
-                <a href="" class="button button-delete"></a>
             </div>
         @endforeach
 

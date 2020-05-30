@@ -5,11 +5,11 @@
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="{{ route('newsAdd') }}" class="main-nav__link">добавить новость</a>
+            <a href="{{ route('admin.news.create') }}" class="main-nav__link">добавить новость</a>
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="" class="main-nav__link">Список новостей</a>
+            <a href="{{ route('admin.news.list') }}" class="main-nav__link">Список новостей</a>
             <div class="background-nav"></div>
         </li>
 

@@ -10,13 +10,13 @@
 @endsection
 
 @section('content')
-<div class="add-news center">
+<div class="form-container center">
     @if(@empty($send))
-        <form class="add-news__form" action="{{route('feedbackAdd')}}" method="post">
+        <form class="form add-news__form center" action="{{route('feedbackAdd')}}" method="post">
             @csrf
-            <input class="add-news__input add-news__item" name="name" placeholder="Имя">
-            <textarea class="add-news__text add-news__item" name="content" placeholder="текст отзыва"></textarea>
-            <button class="add-news__button" type="submit">отправить отзыв</button>
+            <input class="form__input form__item" name="name" placeholder="Имя">
+            <textarea class="form__textarea form__item" name="content" placeholder="текст отзыва"></textarea>
+            <button class="form__button" type="submit">отправить отзыв</button>
         </form>
         @else
         <h2>ОТЗЫВ ОТПРАВЛЕН</h2>
@@ -25,4 +25,5 @@
 @endif
 
 @endsection
+
 

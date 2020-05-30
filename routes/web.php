@@ -17,34 +17,56 @@ Route::get('/', [
     'as' =>  'main'
 ]);
 
-Route::get('/category', [
-    'uses' => 'NewsController@categoryAll',
-    'as'=> 'category'
-]);
-Route::get('/category/{id}', [
-    'uses' => 'NewsController@categoryNews',
-    'as'=> 'categoryNews'
-]);
+Route::group([
+    'prefix' => 'news',
+    'namespace' => 'News',
+    'as' => 'news.'
+], function () {
+    Route::get('/','NewsController@newsAll')->name('all');
+    Route::get('/{news}','NewsController@newsOne')->name('one');
+
+});
 
 
-Route::get('/news', [
-    'uses' => 'NewsController@index',
-    'as'=> 'newsAll'
-]);
-Route::get('/news/{id}', [
-    'uses' => 'NewsController@news',
-    'as'=> 'newsOne'
-]);
-Route::get('/admin', [
-    'uses' => 'Admin\IndexController@index',
-    'as'=> 'admin'
-]);
+Route::group([
+    'prefix' => 'categories',
+    'namespace' => 'News',
+    'as' => 'category.'
+], function () {
+    Route::get('/', 'CategoryController@categories')->name('all');
+    Route::get('/{category}', 'CategoryController@category')->name('one');
+});
 
 
-Route::match(['post', 'get'],'/admin/newsAdd', [
-    'uses' => 'Admin\IndexController@newsAdd',
-    'as'=> 'newsAdd'
-]);
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'as' => 'admin.'
+], function () {
+    Route::get('/', 'IndexController@index')->name('index');
+    Route::group([
+        'prefix' => 'news',
+        'namespace' => 'Admin',
+        'as' => 'news.'
+    ], function () {
+        Route::match(['get', 'post'], '/create', 'NewsController@create')->name('create');
+        Route::get('/edit/{news}', 'NewsController@edit')->name('edit');
+        Route::post('/update/{news}', 'NewsController@update')->name('update');
+        Route::get('/destroy/{news}', 'NewsController@destroy')->name('destroy');
+    });
+    Route::group([
+        'prefix' => 'category',
+        'namespace' => 'Admin',
+        'as' => 'category.'
+    ], function () {
+
+        Route::match(['get', 'post'], '/create', 'CategoryController@create')->name('create');
+        Route::get('/edit/{news}', 'CategoryController@edit')->name('edit');
+        Route::post('/update/{news}', 'CategoryController@update')->name('update');
+        Route::get('/destroy/{news}', 'CategoryController@destroy')->name('destroy');
+    });
+
+});
 
 Route::match(['post', 'get'],'/feedback', [
     'uses' => 'FeedbackController@index',
