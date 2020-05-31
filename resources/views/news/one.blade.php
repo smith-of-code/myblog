@@ -1,5 +1,4 @@
-@extends('index')
-
+@extends('layouts.main')
 @section('title')
     {{ $news->title }}
 @endsection
@@ -16,6 +15,3 @@
         <p class="news-content__text">{{ $news->content }}</p>
     </div>
 @endsection
-
-
-

@@ -20,8 +20,11 @@
                     <p class="news-item__desc">{{ $item->desc }}</p>
 
                 </a>
-                <a href="" class="button button-update"></a>
-                <a href="" class="button button-delete"></a>
+                <div class="button-flex">
+                    <a href="{{route('admin.news.edit', $item->id)}}" class="button button-update">изменить</a>
+                    <a href="{{route('admin.news.destroy', $item->id)}}" class="button button-delete">удалить</a>
+                </div>
+
             </div>
         @endforeach
 

@@ -15,13 +15,8 @@
         <a href="{{ route('main') }}" class="logo__desc">новости отовсюду</a>
     </div>
     @section('main-menu')
-        @if ( @empty($isAdmin))
-            @include('menu')
-        @else
-            @include('admin.menu')
-        @endif
-
-    @show
+                   @include('menu')
+            @show
 </header>
 <div class="content">
 

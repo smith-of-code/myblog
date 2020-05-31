@@ -1,4 +1,4 @@
-@extends('index')
+@extends('admin.index')
 @section('title')
     Добавление новости
 @endsection
@@ -10,26 +10,36 @@
 @endsection
 
 @section('content')
-    @if(@empty($newsAdd))
-                @else
-    <p class="center">Новость добавлена</p>
+    @if(@empty($success))
+        @else
+        <p class="center">{{$success}}</p>
     @endif
-<div class="add-news center">
-    <form class="add-news__form" action="{{route('newsAdd')}}" method="post">
+<div class="form-container center">
+    <form class="form" action="@if (@empty($news)){{ route('admin.news.create') }}@else{{ route('admin.news.update',
+    $news)
+    }}@endif" method="post" enctype="multipart/form-data">
         @csrf
-        <input class="add-news__input add-news__item" name="title" placeholder="название новости">
-        <input class="add-news__input add-news__item" name="desc" placeholder="описание">
-        <label>
-            <select class="add-news__item" name="category">
-                <option selected disabled >выбрать категорию</option>
+        <input class="form__input form__item" name="title" placeholder="название новости" value="{{ $news->title ??
+        old('title') }}">
+        <input class="form__input form__item" name="desc" placeholder="описание" value="{{ $news->desc ?? old
+        ('title') }}">
+                    <select class="form__select form__item" name="category_id">
                 @foreach($categories as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
+                <option @if ($item['id'] == old('name')) selected
+                        @endif value="{{ $item['id'] }}">{{ $item['name']
+                }}</option>
                 @endforeach
             </select>
-        </label>
+        <textarea class="form__textarea form__item" name="content" placeholder="текст новости">{{ $news->content ?? old
+        ('text') }}</textarea>
+        <input class="form__input form__item" type="file" name="image">
 
-        <textarea class="add-news__text add-news__item" name="content" placeholder="текст новости"></textarea>
-        <button class="add-news__button" type="submit">добавить новость</button>
+        <div class="checkbox-container">
+            <label class="form__label">Приватная<input class="form__checkbox" type="checkbox" name="is_private"></label>
+            <label class="form__label">Опубликовать<input class="form__checkbox" type="checkbox" name="published"></label>
+        </div>
+
+        <button class="form__button" type="submit">@if(@empty($news))добавить новость @else сохранить @endif</button>
     </form>
 </div>
 

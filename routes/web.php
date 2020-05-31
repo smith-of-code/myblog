@@ -46,9 +46,9 @@ Route::group([
     Route::get('/', 'IndexController@index')->name('index');
     Route::group([
         'prefix' => 'news',
-        'namespace' => 'Admin',
         'as' => 'news.'
     ], function () {
+        Route::get('/', 'NewsController@list')->name('list');
         Route::match(['get', 'post'], '/create', 'NewsController@create')->name('create');
         Route::get('/edit/{news}', 'NewsController@edit')->name('edit');
         Route::post('/update/{news}', 'NewsController@update')->name('update');
@@ -56,7 +56,6 @@ Route::group([
     });
     Route::group([
         'prefix' => 'category',
-        'namespace' => 'Admin',
         'as' => 'category.'
     ], function () {
 

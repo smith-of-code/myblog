@@ -2,6 +2,9 @@
 @section('title')
 Админка
 @endsection
+@section('main-menu')
+    @include('admin.menu')
+    @endsection
 @section('greeting')
 
 @endsection

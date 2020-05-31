@@ -695,6 +695,29 @@ body {
   box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.2);
 }
 
+.form__select {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  color: white;
+}
+
+.form__label {
+  display: flex;
+  align-items: center;
+}
+
+.form__checkbox {
+  margin: 0 10px;
+  width: 15px;
+  height: 15px;
+}
+
 .form__textarea {
   height: 150px;
   resize: none;
@@ -720,6 +743,26 @@ body {
 .form__button:hover {
   background-color: #f85656;
   color: white;
+}
+
+.button-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.button-update {
+  background-color: cadetblue;
+}
+
+.button-delete {
+  background-color: brown;
 }
 
 @media all and (max-width: 670px) {
