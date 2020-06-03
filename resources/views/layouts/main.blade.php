@@ -30,7 +30,12 @@
     </div>
 
     <h1 class="page-name center">@section('page-name')Главная @show</h1>
+    @if(@empty($success))
+    @else
+        <p class="center">{{$success}}</p>
+    @endif
     @yield('content')
+
 </div>
 <footer class="footer ">
     <article class="about center">

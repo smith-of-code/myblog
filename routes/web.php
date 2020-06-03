@@ -67,7 +67,6 @@ Route::group([
 
 });
 
-Route::match(['post', 'get'],'/feedback', [
-    'uses' => 'FeedbackController@index',
-    'as'=> 'feedbackAdd'
-]);
+Route::get( '/feedback/list', 'FeedbackController@list')->name('feedbacklist');
+Route::match(['get', 'post'], '/feedback/create', 'FeedbackController@create')->name('feedbackCreate');
+

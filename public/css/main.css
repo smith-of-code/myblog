@@ -745,6 +745,14 @@ body {
   color: white;
 }
 
+.form-error {
+  color: red;
+  background-color: black;
+  text-align: center;
+  padding: 2px;
+  border-radius: 20px;
+}
+
 .button-flex {
   display: flex;
   justify-content: space-between;

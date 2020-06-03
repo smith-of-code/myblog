@@ -23,6 +23,7 @@ class NewsController extends Controller
         $news = new News();
         if ($request->isMethod('post')) {
 
+            $this->validate($request, News::rules(),[],News::atributeNames());
 
             if ($request->file('image')) {
                 $path = $request->file('image')->store('public/images/news');
@@ -54,7 +55,7 @@ class NewsController extends Controller
     public function update (Request $request, News $news)
     {
         if ($request->isMethod('post')) {
-
+            $this->validate($request, News::rules(),[],News::atributeNames());
             if ($request->file('image')) {
                 $path = $request->file('image')->store('public/images/news');
                 $url = Storage::url($path);

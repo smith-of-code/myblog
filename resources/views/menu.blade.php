@@ -17,7 +17,11 @@
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
-            <a href="{{ route('feedbackAdd') }}" class="main-nav__link">оставить отзыв</a>
+            <a href="{{ route('feedbacklist') }}" class="main-nav__link">отзывы</a>
+            <div class="background-nav"></div>
+        </li>
+        <li class="main-nav__item">
+            <a href="{{ route('feedbackCreate') }}" class="main-nav__link">оставить отзыв</a>
             <div class="background-nav"></div>
         </li>
 

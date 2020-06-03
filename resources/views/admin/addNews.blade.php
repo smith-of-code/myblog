@@ -21,8 +21,22 @@
         @csrf
         <input class="form__input form__item" name="title" placeholder="название новости" value="{{ $news->title ??
         old('title') }}">
+        @if($errors->has('title'))
+            <p class="form-error">
+                @foreach($errors->get('title') as $error)
+                    {{$error}}
+                    @endforeach
+            </p>
+            @endif
         <input class="form__input form__item" name="desc" placeholder="описание" value="{{ $news->desc ?? old
-        ('title') }}">
+        ('desc') }}">
+        @if($errors->has('desc'))
+            <p class="form-error">
+                @foreach($errors->get('desc') as $error)
+                    {{$error}}
+                @endforeach
+            </p>
+        @endif
                     <select class="form__select form__item" name="category_id">
                 @foreach($categories as $item)
                 <option @if ($item['id'] == old('name')) selected
@@ -32,7 +46,21 @@
             </select>
         <textarea class="form__textarea form__item" name="content" placeholder="текст новости">{{ $news->content ?? old
         ('text') }}</textarea>
+        @if($errors->has('content'))
+            <p class="form-error">
+                @foreach($errors->get('content') as $error)
+                    {{$error}}
+                @endforeach
+            </p>
+        @endif
         <input class="form__input form__item" type="file" name="image">
+        @if($errors->has('image'))
+            <p class="form-error">
+                @foreach($errors->get('image') as $error)
+                    {{$error}}
+                @endforeach
+            </p>
+        @endif
 
         <div class="checkbox-container">
             <label class="form__label">Приватная<input class="form__checkbox" type="checkbox" name="is_private"></label>
