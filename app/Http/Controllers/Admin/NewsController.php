@@ -25,13 +25,20 @@ class NewsController extends Controller
 
             $this->validate($request, News::rules(),[],News::atributeNames());
 
+            if ($request->get('is_private') == 'on'){
+                $news->fill(['is_private' => true]);
+            }
+            if ($request->get('published') == 'on'){
+                $news->fill(['published' => true]);
+            }
+
             if ($request->file('image')) {
                 $path = $request->file('image')->store('public/images/news');
                 $url = Storage::url($path);
                 $news->fill(['image'=>$url]);
             }
 
-            $news->fill($request->except('image'));
+            $news->fill($request->except('image','published','is_private'));
             $news->save();
 
             return view('admin.addNews')
@@ -56,20 +63,28 @@ class NewsController extends Controller
     {
         if ($request->isMethod('post')) {
             $this->validate($request, News::rules(),[],News::atributeNames());
+
+            if ($request->get('is_private') == 'on'){
+                $news->fill(['is_private' => true]);
+            }
+            if ($request->get('published') == 'on'){
+                $news->fill(['published' => true]);
+            }
+
             if ($request->file('image')) {
                 $path = $request->file('image')->store('public/images/news');
                 $url = Storage::url($path);
                 $news->fill(['image'=>$url]);
             }
 
-            $news->fill($request->except('image'));
+            $news->fill($request->except('image','published','is_private'));
             $news->save();
 
             return view('admin.addNews')
                 ->with('categories', Category::all())
                 ->with('success', 'Новость успешно обновлена!');
         }
-
+                return redirect()->back();
     }
 
     public function destroy (Request $request, News $news)

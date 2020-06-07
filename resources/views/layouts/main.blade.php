@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@section('title')Главная @show</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/main.css">
+
 </head>
 <body>
 <header class="header center">
@@ -16,16 +27,17 @@
     </div>
     @section('main-menu')
                    @include('menu')
+
             @show
 </header>
 <div class="content">
 
     <div class="greeting center">
         @section('greeting')
-            <p class="greeting__quota">“</p>
-            <p class="greeting__text">
-                Добро пожаловать на мой первый новостной сайт, разработанный на laravel
-            </p>
+{{--            <p class="greeting__quota">“</p>--}}
+{{--            <p class="greeting__text">--}}
+{{--                Добро пожаловать на мой первый новостной сайт, разработанный на laravel--}}
+{{--            </p>--}}
         @show
     </div>
 

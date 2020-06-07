@@ -41,7 +41,8 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    'middleware'=>['auth','isAdmin']
 ], function () {
     Route::get('/', 'IndexController@index')->name('index');
     Route::group([
@@ -58,15 +59,26 @@ Route::group([
         'prefix' => 'category',
         'as' => 'category.'
     ], function () {
-
+        Route::get('/', 'CategoryController@list')->name('list');
         Route::match(['get', 'post'], '/create', 'CategoryController@create')->name('create');
-        Route::get('/edit/{news}', 'CategoryController@edit')->name('edit');
-        Route::post('/update/{news}', 'CategoryController@update')->name('update');
-        Route::get('/destroy/{news}', 'CategoryController@destroy')->name('destroy');
+        Route::get('/edit/{category}', 'CategoryController@edit')->name('edit');
+        Route::post('/update/{category}', 'CategoryController@update')->name('update');
+        Route::get('/destroy/{category}', 'CategoryController@destroy')->name('destroy');
     });
-
+    Route::group([
+        'prefix' => 'users',
+        'as' => 'users.'
+    ], function () {
+        Route::get('/', 'UserController@list')->name('list');
+        Route::post('/update/{user}', 'UserController@update')->name('update');
+        Route::get('/destroy/{user}', 'UserController@destroy')->name('destroy');
+    });
 });
 
 Route::get( '/feedback/list', 'FeedbackController@list')->name('feedbacklist');
 Route::match(['get', 'post'], '/feedback/create', 'FeedbackController@create')->name('feedbackCreate');
 
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

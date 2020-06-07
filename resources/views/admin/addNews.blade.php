@@ -63,8 +63,12 @@
         @endif
 
         <div class="checkbox-container">
-            <label class="form__label">Приватная<input class="form__checkbox" type="checkbox" name="is_private"></label>
-            <label class="form__label">Опубликовать<input class="form__checkbox" type="checkbox" name="published"></label>
+            <label class="form__label">Приватная<input class="form__checkbox" type="checkbox" name="is_private"
+                           @if(@empty($news) || $news->is_private == '0') @else checked @endif
+                ></label>
+            <label class="form__label">Опубликовать<input class="form__checkbox" type="checkbox" name="published"
+                          @if(@empty($news) || $news->published == '0') @else checked @endif
+                ></label>
         </div>
 
         <button class="form__button" type="submit">@if(@empty($news))добавить новость @else сохранить @endif</button>

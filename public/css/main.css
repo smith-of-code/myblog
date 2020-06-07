@@ -224,6 +224,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: transparent;
 }
 
 .content {
@@ -281,6 +282,9 @@ body {
 
 .main-nav {
   margin-right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .main-nav__list {
@@ -289,19 +293,21 @@ body {
 
 .main-nav__item {
   position: relative;
+  z-index: 1;
 }
 
 .main-nav__link {
   display: block;
   color: #404040;
   font-family: "Helvetica LT Std Condensed Light";
-  font-size: 1.063rem;
+  font-size: 0.8rem;
   font-weight: 300;
   line-height: 1.188rem;
   text-transform: uppercase;
   padding: 52px 13px 10px;
   transition: all 0.4s;
   border-bottom: 2px solid transparent;
+  text-decoration: none;
 }
 
 .main-nav__link:hover {

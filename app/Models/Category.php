@@ -25,8 +25,31 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $table = 'category';
-    protected $fillable = ['name', 'is_private'];
+    protected $fillable = ['name','slug','is_private'];
 
+    public static function rules($update = false)
+    {
+        if($update){
+            return [
+                'name'=>'required|min:1|max:15',
+                'slug'=>'sometimes'
+            ];
+        } else {
+            return [
+                'name'=>'required|min:1|max:15|unique:category',
+                'slug'=>'sometimes|unique:category'
+            ];
+        }
+
+
+    }
+    public static function atributeNames()
+    {
+        return [
+            'name'=>'"Название категории"',
+            'slug'=> '"слаг"'
+        ];
+    }
     public function news()
     {
         return $this->hasMany(News::class, 'category_id');
