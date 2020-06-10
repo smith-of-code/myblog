@@ -13,6 +13,14 @@
             <div class="background-nav"></div>
         </li>
         <li class="main-nav__item">
+            <a href="{{ route('admin.parser.reload') }}" class="main-nav__link">запарсить яндекс-новости</a>
+            <div class="background-nav"></div>
+        </li>
+        <li class="main-nav__item">
+            <a href="{{ route('admin.parser.create') }}" class="main-nav__link">добавить ресурс</a>
+            <div class="background-nav"></div>
+        </li>
+        <li class="main-nav__item">
             <a href="{{ route('admin.news.create') }}" class="main-nav__link">добавить новость</a>
             <div class="background-nav"></div>
         </li>

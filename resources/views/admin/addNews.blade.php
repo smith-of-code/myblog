@@ -28,15 +28,6 @@
                     @endforeach
             </p>
             @endif
-        <input class="form__input form__item" name="desc" placeholder="описание" value="{{ $news->desc ?? old
-        ('desc') }}">
-        @if($errors->has('desc'))
-            <p class="form-error">
-                @foreach($errors->get('desc') as $error)
-                    {{$error}}
-                @endforeach
-            </p>
-        @endif
                     <select class="form__select form__item" name="category_id">
                 @foreach($categories as $item)
                 <option @if ($item['id'] == old('name')) selected

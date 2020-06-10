@@ -73,6 +73,13 @@ Route::group([
         Route::post('/update/{user}', 'UserController@update')->name('update');
         Route::get('/destroy/{user}', 'UserController@destroy')->name('destroy');
     });
+    Route::group([
+        'prefix' => 'parser',
+        'as' => 'parser.'
+    ], function () {
+        Route::get('/reload','ParserController@index')->name('reload');
+        Route::match(['get', 'post'], '/create', 'ParserController@create')->name('create');
+    });
 });
 
 Route::get( '/feedback/list', 'FeedbackController@list')->name('feedbacklist');

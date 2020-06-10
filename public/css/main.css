@@ -530,6 +530,8 @@ body {
 }
 
 .about__photo {
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 123px;
   border: 7px solid #ffffff;
   margin-top: -57px;
