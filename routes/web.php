@@ -85,6 +85,11 @@ Route::group([
 Route::get( '/feedback/list', 'FeedbackController@list')->name('feedbacklist');
 Route::match(['get', 'post'], '/feedback/create', 'FeedbackController@create')->name('feedbackCreate');
 
+Route::get('/auth/vk', 'LoginController@loginVK')->name('vkLogin');
+Route::get('/auth/vk/response', 'LoginController@responseVK')->name('vkResponse');
+
+Route::get('/auth/facebook', 'LoginController@loginFB')->name('fbLogin');
+Route::get('/auth/facebook/response', 'LoginController@responseFB')->name('fbResponse');
 
 Auth::routes();
 

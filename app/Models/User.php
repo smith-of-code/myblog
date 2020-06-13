@@ -31,6 +31,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $is_admin Пользователь админ?
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereIsAdmin($value)
  */
 class User extends Authenticatable
 {
@@ -42,7 +44,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'is_admin',
+        'name', 'email', 'password', 'is_admin','id_in_soc', 'type_auth', 'avatar'
     ];
 
     /**

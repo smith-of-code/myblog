@@ -64,6 +64,13 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4 mt-3 h4">
+                                <a href="{{route('vkLogin')}}"><i class="fab fa-vk"></i></a>
+                                <a href="{{route('fbLogin')}}"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

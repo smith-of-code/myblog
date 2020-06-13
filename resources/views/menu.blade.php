@@ -24,8 +24,7 @@
             <a href="{{ route('feedbackCreate') }}" class="main-nav__link">оставить отзыв</a>
             <div class="background-nav"></div>
         </li>
-
-    </ul>
+            </ul>
     <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
         @guest
