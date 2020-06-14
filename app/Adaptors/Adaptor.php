@@ -4,7 +4,8 @@
 namespace App\Adaptors;
 
 use App\Models\User;
-use SocialiteProviders\Manager\OAuth2\User as UserOAuth;
+//use SocialiteProviders\Manager\OAuth2\User as UserOAuth;
+use Laravel\Socialite\Two\User as UserOAuth;
 use tests\Mockery\Adapter\Phpunit\EmptyTestCase;
 
 class Adaptor
@@ -19,7 +20,7 @@ class Adaptor
             $userInSystem = new User();
             $userInSystem->fill([
                'name' => !empty($user->getName())? $user->getName(): '',
-               'email' => $user->accessTokenResponseBody['email'],
+               'email' => $user->email,
                 'password' => '',
                 'id_in_soc'=> !empty($user->getId())? $user->getId(): '',
                 'type_auth'=>$socName,
